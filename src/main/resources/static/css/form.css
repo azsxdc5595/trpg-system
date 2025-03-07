@@ -1,0 +1,16 @@
+/* 表單居中 */
+.form-center {
+    text-align: center;
+}
+
+/* 表單欄位美化 */
+.form-center input {
+    padding: 8px;
+    margin: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-center input[type="number"] {
+    width: 50px;
+}

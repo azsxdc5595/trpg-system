@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.trpg.dao.mapper.customize.SystemCodeCustomizeMapper">
+
+    <!-- systemCodeList 查詢 -->
+    <select id="systemCodeList" resultMap="com.example.trpg.dao.mapper.SystemCodeMapper.BaseResultMap">
+        SELECT
+        <include refid="com.example.trpg.dao.mapper.SystemCodeMapper.Base_Column_List"/>
+        FROM SYSTEM_CODE
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+    
+    <!-- systemCode總數 查詢 -->
+    <select id="countSystemCodes" resultType="long">
+        SELECT COUNT(*) FROM SYSTEM_CODE
+    </select>
+
+</mapper>
+

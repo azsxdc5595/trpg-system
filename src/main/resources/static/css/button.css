@@ -1,0 +1,62 @@
+/* 美化確認按鈕 */
+.submit-btn {
+    background-color: #4CAF50; /* 綠色背景 */
+    color: white; /* 白色字體 */
+    border: none;
+    margin:10px 20px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px; /* 圓角邊框 */
+    transition: background-color 0.3s ease; /* 動畫過渡效果 */
+}
+
+/* 滑鼠懸停效果 */
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+/* 美化編輯按鈕 */
+.edit-btn {
+    background-color: #4CAF50; /* 綠色背景 */
+    color: white; /* 白色字體 */
+    border: none;
+    margin:10px 20px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px; /* 圓角邊框 */
+    transition: background-color 0.3s ease; /* 動畫過渡效果 */
+}
+
+/* 滑鼠懸停效果 */
+.edit-btn:hover {
+    background-color: #45a049;
+}
+
+/* 美化刪除按鈕 */
+.delete-btn {
+    background-color: #4CAF50; /* 綠色背景 */
+    color: white; /* 白色字體 */
+    border: none;
+    margin:10px 20px;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px; /* 圓角邊框 */
+    transition: background-color 0.3s ease; /* 動畫過渡效果 */
+}
+
+/* 滑鼠懸停效果 */
+.delete-btn:hover {
+    background-color: #45a049;
+}

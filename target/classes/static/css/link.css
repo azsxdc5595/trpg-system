@@ -1,0 +1,27 @@
+/* 返回鏈接居中 */
+.center-link {
+    text-align: center;
+    margin-top: 20px; /* 可選的，設定上方的間距 */
+}
+
+/* 分頁控制 */
+.link {
+    margin-top: 20px;
+}
+
+.link a {
+    margin: 0 5px;
+    text-decoration: none;
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    color: #333;
+}
+
+.link a:hover {
+    background-color: #f2f2f2;
+}
+
+.link a.active {
+    background-color: #4CAF50;
+    color: white;
+}

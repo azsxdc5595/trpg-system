@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.trpg.dao.mapper.customize.PlayerCustomizeMapper">
+
+    <!-- playerList 查詢 -->
+    <select id="playerList" resultMap="com.example.trpg.dao.mapper.PlayerMapper.BaseResultMap">
+        SELECT
+        <include refid="com.example.trpg.dao.mapper.PlayerMapper.Base_Column_List"/>
+        FROM PLAYER
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+    
+    <!-- player總數 查詢 -->
+    <select id="countPlayers" resultType="long">
+        SELECT COUNT(*) FROM PLAYER
+    </select>
+
+</mapper>
+

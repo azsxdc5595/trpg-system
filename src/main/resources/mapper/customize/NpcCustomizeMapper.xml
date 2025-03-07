@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.trpg.dao.mapper.customize.NpcCustomizeMapper">
+
+    <!-- npcList 查詢 -->
+    <select id="npcList" resultMap="com.example.trpg.dao.mapper.NpcMapper.BaseResultMap">
+        SELECT
+        <include refid="com.example.trpg.dao.mapper.NpcMapper.Base_Column_List"/>
+        FROM NPC
+        LIMIT #{limit} OFFSET #{offset}
+    </select>
+    
+    <!-- npc總數 查詢 -->
+    <select id="countNpces" resultType="long">
+        SELECT COUNT(*) FROM NPC
+    </select>
+
+</mapper>
+
