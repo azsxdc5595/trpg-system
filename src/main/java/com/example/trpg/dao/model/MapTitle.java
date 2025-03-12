@@ -19,9 +19,11 @@ public class MapTitle implements Serializable {
 
     private String pattern;
 
-    private String relatedActivities;
+    private String relatedEvents;
 
     private String name;
+
+    private Integer enabled;
 
     private static final long serialVersionUID = 1L;
 }

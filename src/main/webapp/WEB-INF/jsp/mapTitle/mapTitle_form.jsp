@@ -15,6 +15,7 @@
     <body>
         <h2 class="center">新增板塊</h2>
         <form id="mapTitleForm" class="form-center">
+            板塊名稱:<input type="text" name="name"><br/>
             板塊是否為陷阱：<input type="number" name="trapFlag"><br/>
             板塊樓層：<input type="number" name="floor"><br/>
             板塊方向：<input type="number" name="pattern"><br/>

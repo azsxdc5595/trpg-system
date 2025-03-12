@@ -16,6 +16,7 @@
         <h2 class="center">編輯板塊</h2>
         <form id="mapTitleForm" class="form-center">
             <input type="hidden" name="id" value="<c:out value='${mapTitle.id}'/>">
+            板塊名稱:<input type="text" name="name" value="<c:out value='${mapTitle.name}'/>"><br/>
             板塊是否為陷阱：<input type="number" name="trapFlag" value="<c:out value='${mapTitle.trapFlag}'/>"><br/>
             板塊樓層：<input type="number" name="floor" value="<c:out value='${mapTitle.floor}'/>"><br/>
             板塊方向：<input type="number" name="pattern" value="<c:out value='${mapTitle.pattern}'/>"><br/>

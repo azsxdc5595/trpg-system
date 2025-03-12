@@ -6,11 +6,12 @@
     <result column="TRAP_FLAG" jdbcType="INTEGER" property="trapFlag" />
     <result column="FLOOR" jdbcType="INTEGER" property="floor" />
     <result column="PATTERN" jdbcType="VARCHAR" property="pattern" />
-    <result column="RELATED_ACTIVITIES" jdbcType="VARCHAR" property="relatedActivities" />
+    <result column="RELATED_EVENTS" jdbcType="VARCHAR" property="relatedEvents" />
     <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
   </resultMap>
   <sql id="Base_Column_List">
-    ID, TRAP_FLAG, FLOOR, PATTERN, RELATED_ACTIVITIES, NAME
+    ID, TRAP_FLAG, FLOOR, PATTERN, RELATED_EVENTS, NAME, ENABLED
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -24,9 +25,11 @@
   </delete>
   <insert id="insert" keyColumn="ID" keyProperty="id" parameterType="com.example.trpg.dao.model.MapTitle" useGeneratedKeys="true">
     insert into map_title (TRAP_FLAG, FLOOR, PATTERN, 
-      RELATED_ACTIVITIES, NAME)
+      RELATED_EVENTS, NAME, ENABLED
+      )
     values (#{trapFlag,jdbcType=INTEGER}, #{floor,jdbcType=INTEGER}, #{pattern,jdbcType=VARCHAR}, 
-      #{relatedActivities,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
+      #{relatedEvents,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{enabled,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" keyColumn="ID" keyProperty="id" parameterType="com.example.trpg.dao.model.MapTitle" useGeneratedKeys="true">
     insert into map_title
@@ -40,11 +43,14 @@
       <if test="pattern != null">
         PATTERN,
       </if>
-      <if test="relatedActivities != null">
-        RELATED_ACTIVITIES,
+      <if test="relatedEvents != null">
+        RELATED_EVENTS,
       </if>
       <if test="name != null">
         NAME,
+      </if>
+      <if test="enabled != null">
+        ENABLED,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -57,11 +63,14 @@
       <if test="pattern != null">
         #{pattern,jdbcType=VARCHAR},
       </if>
-      <if test="relatedActivities != null">
-        #{relatedActivities,jdbcType=VARCHAR},
+      <if test="relatedEvents != null">
+        #{relatedEvents,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -77,11 +86,14 @@
       <if test="pattern != null">
         PATTERN = #{pattern,jdbcType=VARCHAR},
       </if>
-      <if test="relatedActivities != null">
-        RELATED_ACTIVITIES = #{relatedActivities,jdbcType=VARCHAR},
+      <if test="relatedEvents != null">
+        RELATED_EVENTS = #{relatedEvents,jdbcType=VARCHAR},
       </if>
       <if test="name != null">
         NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        ENABLED = #{enabled,jdbcType=INTEGER},
       </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
@@ -91,8 +103,9 @@
     set TRAP_FLAG = #{trapFlag,jdbcType=INTEGER},
       FLOOR = #{floor,jdbcType=INTEGER},
       PATTERN = #{pattern,jdbcType=VARCHAR},
-      RELATED_ACTIVITIES = #{relatedActivities,jdbcType=VARCHAR},
-      NAME = #{name,jdbcType=VARCHAR}
+      RELATED_EVENTS = #{relatedEvents,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      ENABLED = #{enabled,jdbcType=INTEGER}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

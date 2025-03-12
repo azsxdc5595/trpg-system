@@ -8,9 +8,10 @@
     <result column="CATEGORY" jdbcType="VARCHAR" property="category" />
     <result column="EVENT_GROUP" jdbcType="VARCHAR" property="eventGroup" />
     <result column="LEVEL" jdbcType="INTEGER" property="level" />
+    <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
   </resultMap>
   <sql id="Base_Column_List">
-    UID, NAME, DESCRIPTION, CATEGORY, EVENT_GROUP, LEVEL
+    UID, NAME, DESCRIPTION, CATEGORY, EVENT_GROUP, LEVEL, ENABLED
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -24,11 +25,11 @@
   </delete>
   <insert id="insert" parameterType="com.example.trpg.dao.model.Event">
     insert into event (UID, NAME, DESCRIPTION, 
-      CATEGORY, EVENT_GROUP, LEVEL
-      )
+      CATEGORY, EVENT_GROUP, LEVEL, 
+      ENABLED)
     values (#{uid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{category,jdbcType=VARCHAR}, #{eventGroup,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}
-      )
+      #{category,jdbcType=VARCHAR}, #{eventGroup,jdbcType=VARCHAR}, #{level,jdbcType=INTEGER}, 
+      #{enabled,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.example.trpg.dao.model.Event">
     insert into event
@@ -51,6 +52,9 @@
       <if test="level != null">
         LEVEL,
       </if>
+      <if test="enabled != null">
+        ENABLED,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -70,6 +74,9 @@
       </if>
       <if test="level != null">
         #{level,jdbcType=INTEGER},
+      </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -91,6 +98,9 @@
       <if test="level != null">
         LEVEL = #{level,jdbcType=INTEGER},
       </if>
+      <if test="enabled != null">
+        ENABLED = #{enabled,jdbcType=INTEGER},
+      </if>
     </set>
     where UID = #{uid,jdbcType=VARCHAR}
   </update>
@@ -100,7 +110,8 @@
       DESCRIPTION = #{description,jdbcType=VARCHAR},
       CATEGORY = #{category,jdbcType=VARCHAR},
       EVENT_GROUP = #{eventGroup,jdbcType=VARCHAR},
-      LEVEL = #{level,jdbcType=INTEGER}
+      LEVEL = #{level,jdbcType=INTEGER},
+      ENABLED = #{enabled,jdbcType=INTEGER}
     where UID = #{uid,jdbcType=VARCHAR}
   </update>
 </mapper>

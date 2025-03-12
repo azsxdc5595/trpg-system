@@ -16,6 +16,7 @@
         <table class="center-table">
             <tr>
                 <th>ID</th>
+                <th>名稱</th>
                 <th>板塊是否為陷阱</th>
                 <th>板塊樓層</th>
                 <th>板塊方向</th>
@@ -26,6 +27,7 @@
             <c:forEach var="mapTitle" items="${mapTitles}">
                 <tr>
                     <td>${mapTitle.id}</td>
+                    <td>${mapTitle.name}</td>
                     <td>${mapTitle.trapFlag}</td>
                     <td>${mapTitle.floor}</td>
                     <td>${mapTitle.pattern}</td>

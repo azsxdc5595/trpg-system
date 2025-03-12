@@ -2,35 +2,35 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.trpg.dao.mapper.SystemCodeMapper">
   <resultMap id="BaseResultMap" type="com.example.trpg.dao.model.SystemCode">
-    <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="cname" jdbcType="VARCHAR" property="cname" />
-    <result column="enabled" jdbcType="INTEGER" property="enabled" />
+    <id column="ID" jdbcType="INTEGER" property="id" />
+    <result column="CNAME" jdbcType="VARCHAR" property="cname" />
+    <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
   </resultMap>
   <sql id="Base_Column_List">
-    id, cname, enabled
+    ID, CNAME, ENABLED
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from system_code
-    where id = #{id,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from system_code
-    where id = #{id,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.example.trpg.dao.model.SystemCode" useGeneratedKeys="true">
-    insert into system_code (cname, enabled)
+  <insert id="insert" keyColumn="ID" keyProperty="id" parameterType="com.example.trpg.dao.model.SystemCode" useGeneratedKeys="true">
+    insert into system_code (CNAME, ENABLED)
     values (#{cname,jdbcType=VARCHAR}, #{enabled,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.example.trpg.dao.model.SystemCode" useGeneratedKeys="true">
+  <insert id="insertSelective" keyColumn="ID" keyProperty="id" parameterType="com.example.trpg.dao.model.SystemCode" useGeneratedKeys="true">
     insert into system_code
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="cname != null">
-        cname,
+        CNAME,
       </if>
       <if test="enabled != null">
-        enabled,
+        ENABLED,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -46,18 +46,18 @@
     update system_code
     <set>
       <if test="cname != null">
-        cname = #{cname,jdbcType=VARCHAR},
+        CNAME = #{cname,jdbcType=VARCHAR},
       </if>
       <if test="enabled != null">
-        enabled = #{enabled,jdbcType=INTEGER},
+        ENABLED = #{enabled,jdbcType=INTEGER},
       </if>
     </set>
-    where id = #{id,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.example.trpg.dao.model.SystemCode">
     update system_code
-    set cname = #{cname,jdbcType=VARCHAR},
-      enabled = #{enabled,jdbcType=INTEGER}
-    where id = #{id,jdbcType=INTEGER}
+    set CNAME = #{cname,jdbcType=VARCHAR},
+      ENABLED = #{enabled,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
