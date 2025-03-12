@@ -23,7 +23,5 @@ public class Event implements Serializable {
 
     private Integer level;
 
-    private Integer enabled;
-
     private static final long serialVersionUID = 1L;
 }

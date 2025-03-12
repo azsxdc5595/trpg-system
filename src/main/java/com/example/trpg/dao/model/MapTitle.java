@@ -17,11 +17,11 @@ public class MapTitle implements Serializable {
 
     private Integer floor;
 
-    private Integer pattern;
+    private String pattern;
 
-    private String relatedEvents;
+    private String relatedActivities;
 
-    private Integer enabled;
+    private String name;
 
     private static final long serialVersionUID = 1L;
 }
