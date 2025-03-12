@@ -19,9 +19,9 @@ public class Item implements Serializable {
 
     private String category;
 
-    private String relatedEvents;
-
     private Integer enabled;
+
+    private String relatedEvents;
 
     private static final long serialVersionUID = 1L;
 }

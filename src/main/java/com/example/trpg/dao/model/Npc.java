@@ -29,5 +29,9 @@ public class Npc implements Serializable {
 
     private Integer health;
 
+    private String relatedEvents;
+
+    private Integer enabled;
+
     private static final long serialVersionUID = 1L;
 }

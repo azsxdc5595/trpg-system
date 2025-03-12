@@ -11,9 +11,12 @@
     <result column="INTELLIGENCE" jdbcType="INTEGER" property="intelligence" />
     <result column="LUCK" jdbcType="INTEGER" property="luck" />
     <result column="HEALTH" jdbcType="INTEGER" property="health" />
+    <result column="RELATED_EVENTS" jdbcType="VARCHAR" property="relatedEvents" />
+    <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
   </resultMap>
   <sql id="Base_Column_List">
-    UID, NAME, RACE, PROFESSION, STRENGTH, DEXTERITY, INTELLIGENCE, LUCK, HEALTH
+    UID, NAME, RACE, PROFESSION, STRENGTH, DEXTERITY, INTELLIGENCE, LUCK, HEALTH, RELATED_EVENTS, 
+    ENABLED
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -28,12 +31,12 @@
   <insert id="insert" parameterType="com.example.trpg.dao.model.Npc">
     insert into npc (UID, NAME, RACE, 
       PROFESSION, STRENGTH, DEXTERITY, 
-      INTELLIGENCE, LUCK, HEALTH
-      )
+      INTELLIGENCE, LUCK, HEALTH, 
+      RELATED_EVENTS, ENABLED)
     values (#{uid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{race,jdbcType=VARCHAR}, 
       #{profession,jdbcType=VARCHAR}, #{strength,jdbcType=INTEGER}, #{dexterity,jdbcType=INTEGER}, 
-      #{intelligence,jdbcType=INTEGER}, #{luck,jdbcType=INTEGER}, #{health,jdbcType=INTEGER}
-      )
+      #{intelligence,jdbcType=INTEGER}, #{luck,jdbcType=INTEGER}, #{health,jdbcType=INTEGER}, 
+      #{relatedEvents,jdbcType=VARCHAR}, #{enabled,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.example.trpg.dao.model.Npc">
     insert into npc
@@ -65,6 +68,12 @@
       <if test="health != null">
         HEALTH,
       </if>
+      <if test="relatedEvents != null">
+        RELATED_EVENTS,
+      </if>
+      <if test="enabled != null">
+        ENABLED,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -93,6 +102,12 @@
       </if>
       <if test="health != null">
         #{health,jdbcType=INTEGER},
+      </if>
+      <if test="relatedEvents != null">
+        #{relatedEvents,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -123,6 +138,12 @@
       <if test="health != null">
         HEALTH = #{health,jdbcType=INTEGER},
       </if>
+      <if test="relatedEvents != null">
+        RELATED_EVENTS = #{relatedEvents,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        ENABLED = #{enabled,jdbcType=INTEGER},
+      </if>
     </set>
     where UID = #{uid,jdbcType=VARCHAR}
   </update>
@@ -135,7 +156,9 @@
       DEXTERITY = #{dexterity,jdbcType=INTEGER},
       INTELLIGENCE = #{intelligence,jdbcType=INTEGER},
       LUCK = #{luck,jdbcType=INTEGER},
-      HEALTH = #{health,jdbcType=INTEGER}
+      HEALTH = #{health,jdbcType=INTEGER},
+      RELATED_EVENTS = #{relatedEvents,jdbcType=VARCHAR},
+      ENABLED = #{enabled,jdbcType=INTEGER}
     where UID = #{uid,jdbcType=VARCHAR}
   </update>
 </mapper>
