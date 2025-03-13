@@ -17,10 +17,9 @@
         <form id="mapTitleForm" class="form-center">
             板塊名稱:<input type="text" name="name"><br/>
             板塊是否為陷阱：<input type="number" name="trapFlag"><br/>
-            板塊樓層：<input type="number" name="floor"><br/>
             板塊方向：<input type="number" name="pattern"><br/>
-            板塊關聯事件：<input type="text" name="relatedEvents"><br/>
             是否啟用：<input type="number" name="enabled"/><br/>
+            板塊圖示:<input type="text" name="icon"/><br/>
             <h3 class="margin-Btn"></h3>
             <button type="button" id="saveBtn" class="submit-btn">保存</button>
         </form>

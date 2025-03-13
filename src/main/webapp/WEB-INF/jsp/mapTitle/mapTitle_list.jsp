@@ -16,12 +16,11 @@
         <table class="center-table">
             <tr>
                 <th>ID</th>
-                <th>名稱</th>
+                <th>板塊名稱</th>
                 <th>板塊是否為陷阱</th>
-                <th>板塊樓層</th>
                 <th>板塊方向</th>
-                <th>板塊關聯事件</th>
                 <th>是否啟用</th>
+                <th>板塊圖示</th>
                 <th>操作</th>
             </tr>
             <c:forEach var="mapTitle" items="${mapTitles}">
@@ -29,10 +28,9 @@
                     <td>${mapTitle.id}</td>
                     <td>${mapTitle.name}</td>
                     <td>${mapTitle.trapFlag}</td>
-                    <td>${mapTitle.floor}</td>
                     <td>${mapTitle.pattern}</td>
-                    <td>${mapTitle.relatedEvents}</td>
                     <td>${mapTitle.enabled}</td>
+                    <td><img src="<c:out value='${mapTitle.icon}'/>" alt="Tile Image" width="200" height="200"></td>
                     <td>
                         <form action="/mapTitle/toEdit" method="POST">
                             <input type="hidden" name="id" value="<c:out value='${mapTitle.id}'/>">

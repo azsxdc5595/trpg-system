@@ -13,7 +13,7 @@
         <h2 class="center">TRPG歡迎您</h2>
         <h3 class="margin-Btn"></h3>
         <div class="form-center">
-            <form action="/player/" method="GET" class="center">
+            <form action="/game/newGame" method="GET" class="center">
                 <button type="submit" class="submit-btn">新的遊戲</button>
             </form>
             <form action="/item/" method="GET" class="center">

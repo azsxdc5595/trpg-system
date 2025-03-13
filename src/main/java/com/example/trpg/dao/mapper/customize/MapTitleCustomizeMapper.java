@@ -12,4 +12,6 @@ public interface MapTitleCustomizeMapper {
     List<MapTitle> mapTitleList(int offset, int limit);
 
     long countMapTitles();
+
+	MapTitle getStartMapTitle();
 }
