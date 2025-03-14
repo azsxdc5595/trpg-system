@@ -22,31 +22,34 @@ body {
 /* TRPG 地圖容器 */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(11, 150px); /* 11 列，每列 150px */
-    grid-template-rows: repeat(11, 150px); /* 11 行，每行 150px */
+    grid-template-columns: repeat(11, 75px);
+    grid-template-rows: repeat(11, 75px);
     gap: 0px; /* 之前 gap 可能過大，這裡設為 0 避免多餘空白 */
     justify-content: center;
     align-items: center;
-    width: calc(11 * 150px); /* 確保地圖寬度正確 */
-    height: calc(11 * 150px); /* 確保地圖高度正確 */
     background-color: #f8f8f8; /* 給個背景顏色讓地圖更明顯 */
 }
 
-/* TRPG 板塊 */
 .tile {
-    width: 150px;
-    height: 150px;
-    border: 1px solid black;
+    width: 75px !important;
+    height: 75px !important;
+    max-width: 75px !important;
+    max-height: 75px !important;
+    border: 1px solid white; /* 白色邊框，讓格子明顯 */
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative; /* 讓 `img` 正確覆蓋 */
     background-color: lightgray;
-    margin: 0; /* 避免瀏覽器預設 margin 影響 */
-    padding: 0; /* 確保內部沒有額外間距 */
+    overflow: hidden; /* ✅ 避免內部元素超出 */
 }
 
-/* TRPG 板塊樣式 */
+/* 確保圖片不會超過 tile 的範圍 */
 .tile img {
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: contain; /* ✅ 確保圖片縮放時不變形 */
+    position: absolute;
+    top: 0;
+    left: 0;
 }

@@ -13,12 +13,13 @@
         <link rel="stylesheet" type="text/css" href="/css/grid_castle.css">
     </head>
     <body>
-    	<input type="hidden" id="startMapTitle" name="startMapTitle"
+        <input type="hidden" id="startMapTitle" name="startMapTitle"
     value='{"id": ${startMapTitle.id}, "trapFlag": ${startMapTitle.trapFlag}, "pattern": "${startMapTitle.pattern}", "enabled": ${startMapTitle.enabled}, "icon": "${startMapTitle.icon}", "name": "${startMapTitle.name}"}'>
-    	<h2 class="trpg-title">TRPG 板塊地圖</h2>
-	    
-	    <div class="grid-wrapper">
-	        <div class="grid-container" id="mapGrid"></div>
-	    </div>
+        <h2 class="trpg-title">TRPG 板塊地圖</h2>
+        
+        <div class="grid-wrapper">
+            <div class="grid-container" id="mapGrid"></div>
+        </div>
+        <jsp:include page="/WEB-INF/jsp/game/game_status.jsp" />
     </body>
 </html>
