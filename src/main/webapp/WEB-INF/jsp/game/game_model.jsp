@@ -10,7 +10,7 @@
         <link rel="stylesheet" type="text/css" href="/css/form.css">
         <link rel="stylesheet" type="text/css" href="/css/button.css">
         <link rel="stylesheet" type="text/css" href="/css/link.css">
-        <link rel="stylesheet" type="text/css" href="/css/grid.css">
+        <link rel="stylesheet" type="text/css" href="/css/grid_castle.css">
     </head>
     <body>
     	<input type="hidden" id="startMapTitle" name="startMapTitle"
