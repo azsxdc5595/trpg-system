@@ -16,4 +16,6 @@ public interface MapTitleCustomizeMapper {
 	MapTitle getStartMapTitle();
 
 	MapTitle getRandomEnabledTile();
+
+	MapTitle getPatternByIcon(String icon);
 }

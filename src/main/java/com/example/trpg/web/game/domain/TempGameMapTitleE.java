@@ -1,4 +1,4 @@
-package com.example.trpg.web.game;
+package com.example.trpg.web.game.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

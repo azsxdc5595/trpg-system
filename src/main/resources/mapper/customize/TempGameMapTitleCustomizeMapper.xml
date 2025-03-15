@@ -7,6 +7,7 @@
         SELECT
         <include refid="com.example.trpg.dao.mapper.TempGameMapTitleMapper.Base_Column_List"/>
         FROM TEMP_GAME_MAP_TITLE
+        WHERE UID = #{snowNo}
     </select>
 
 </mapper>

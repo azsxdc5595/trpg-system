@@ -14,10 +14,20 @@
     </head>
     <body>
         <h2 class="trpg-title">TRPG 板塊地圖</h2>
-        <input type="hidden" value='<c:out value="${snowNo}"/>' name="snowNo">
+        <form id="queryForm">
+        	<input type="hidden" value='<c:out value="${snowNo}"/>' name="snowNo">
+        </form>
         <div class="grid-wrapper">
             <div class="grid-container" id="mapGrid"></div>
         </div>
         <jsp:include page="/WEB-INF/jsp/game/game_status.jsp" />
+        <form id="checkForm">
+        	<input type="hidden" value='<c:out value="${snowNo}"/>' name="snowNo">
+        	<input type="hidden" name="id">
+        	<input type="hidden" name="x">
+        	<input type="hidden" name="y">
+        	<input type="hidden" name="floor">
+        	<input type="hidden" name="icon">
+        </form>
     </body>
 </html>

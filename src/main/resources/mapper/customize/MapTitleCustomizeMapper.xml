@@ -24,12 +24,19 @@
 
 	<!-- mapTitle 隨機抽一張不是起始板塊的啟用板塊 -->
 	<select id="getRandomEnabledTile" resultType="com.example.trpg.dao.model.MapTitle">
-	    SELECT * FROM MAP_TITLE
+	    SELECT <include refid="com.example.trpg.dao.mapper.MapTitleMapper.Base_Column_List"/> 
+	    FROM MAP_TITLE
 	    WHERE ENABLED = 1 AND TRAP_FLAG = 0
 	    AND ID != '1'
 	    ORDER BY RAND()
 	    LIMIT 1
 	</select>
-
+	
+	<!-- mapTitle 用icon比對 -->
+	<select id="getPatternByIcon" resultType="com.example.trpg.dao.model.MapTitle">
+	    SELECT <include refid="com.example.trpg.dao.mapper.MapTitleMapper.Base_Column_List"/>
+	    FROM MAP_TITLE
+	    WHERE ICON = #{icon}
+	</select>
 </mapper>
 

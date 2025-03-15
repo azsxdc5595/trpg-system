@@ -9,5 +9,5 @@ import com.example.trpg.dao.model.TempGameMapTitle;
 @Mapper
 public interface TempGameMapTitleCustomizeMapper {
 
-    List<TempGameMapTitle> list();
+    List<TempGameMapTitle> list(String snowNo);
 }
