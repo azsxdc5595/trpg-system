@@ -15,12 +15,21 @@
         SELECT COUNT(*) FROM MAP_TITLE
     </select>
 
-    <!-- mapTitle總數 查詢 -->
+    <!-- mapTitle 指定起始板塊 -->
     <select id="getStartMapTitle" resultMap="com.example.trpg.dao.mapper.MapTitleMapper.BaseResultMap">
         SELECT <include refid="com.example.trpg.dao.mapper.MapTitleMapper.Base_Column_List"/>
         FROM MAP_TITLE
         WHERE ID = '1'
     </select>
+
+	<!-- mapTitle 隨機抽一張不是起始板塊的啟用板塊 -->
+	<select id="getRandomEnabledTile" resultType="com.example.trpg.dao.model.MapTitle">
+	    SELECT * FROM MAP_TITLE
+	    WHERE ENABLED = 1 AND TRAP_FLAG = 0
+	    AND ID != '1'
+	    ORDER BY RAND()
+	    LIMIT 1
+	</select>
 
 </mapper>
 

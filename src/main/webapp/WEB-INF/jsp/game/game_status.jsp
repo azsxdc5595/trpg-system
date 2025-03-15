@@ -9,13 +9,21 @@
         <link rel="stylesheet" type="text/css" href="/css/game_status.css">
     </head>
     <body>
-        <div class="game-status">
-            <p id="roundNumber">第 1 回合</p>
-            <p id="gameHint">Hi</p>
-            <button id="drawTileButton" type="button">抽</button>
-            <div class="tile-preview">
-
-            </div>
-        </div>
+		<div class="game-status">
+		    <div class="game-status-content">
+		    	<input type="hidden" name="roundCountInput" value="1">
+		        <p id="roundNumber">回合數: 現在是第 <span id="roundCount"></span> 回合</p>
+		        <input type="hidden" name="gameHintInput" value="請抽板塊">
+		        <p id="gameHint"></p>
+		
+		        <!-- 抽板塊按鈕 -->
+		        <button id="drawTileButton">抽</button>
+		
+		        <!-- 抽出的板塊預覽 -->
+		        <div class="tile-preview">
+		        	<!-- 抽出新板塊 -->
+		        </div>
+		    </div>
+		</div>
     </body>
 </html>

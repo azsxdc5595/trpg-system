@@ -20,8 +20,12 @@ public class GameService {
     	dataMap.put("startMapTitle", mapTitleCustomizeMapper.getStartMapTitle());
         return dataMap;
     }
-	public MapTitle draw() {
-		// TODO Auto-generated method stub
-		return null;
+    
+	public Map<String, String> drawTile() {
+		Map<String, String> dataMap = new HashMap<>();
+		MapTitle mapTitle = mapTitleCustomizeMapper.getRandomEnabledTile();
+		dataMap.put("name", mapTitle.getName());
+		dataMap.put("icon", mapTitle.getIcon());
+        return dataMap;
 	}
 }

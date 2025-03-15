@@ -41,14 +41,14 @@ body {
     justify-content: center;
     position: relative; /* 讓 `img` 正確覆蓋 */
     background-color: lightgray;
-    overflow: hidden; /* ✅ 避免內部元素超出 */
+    overflow: hidden; /*  避免內部元素超出 */
 }
 
 /* 確保圖片不會超過 tile 的範圍 */
 .tile img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain; /* ✅ 確保圖片縮放時不變形 */
+    object-fit: contain; /*  確保圖片縮放時不變形 */
     position: absolute;
     top: 0;
     left: 0;

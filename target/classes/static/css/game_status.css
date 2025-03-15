@@ -1,6 +1,26 @@
+/* 遊戲狀態顯示區塊（固定在畫面底部） */
+.game-status {
+    position: fixed;  /*  固定位置 */
+    bottom: 0;        /*  靠底部 */
+    left: 0;
+    width: 100%;      /*  讓寬度填滿 */
+    background: rgba(0, 0, 0, 0.8); /*  半透明黑色背景 */
+    color: white; /* 讓整個區塊內文字變白 */
+    text-align: center;
+    padding: 15px;
+    border-top: 2px solid white; /*  增加上邊界，讓 UI 更清晰 */
+}
+
+/* 內部內容排版 */
+.game-status-content {
+    display: flex;
+    justify-content: center;  /*  讓內容水平置中 */
+    align-items: center;      /*  讓內容垂直置中 */
+    gap: 20px; /*  讓元素之間有間距 */
+}
+
 /* 按鈕樣式 */
 #drawTileButton {
-    margin-top: 10px;
     padding: 10px 20px;
     font-size: 18px;
     color: white;
@@ -15,22 +35,16 @@
     background-color: #0056b3;
 }
 
-/* 遊戲狀態顯示區塊 */
-.game-status {
-    text-align: center;
-    margin-top: 20px;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.6); /* 半透明黑色背景 */
-    color: white; /* 讓整個區塊內文字變白 */
-    border-radius: 10px;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /* 確保回合數和提示語是白色 */
 #roundNumber, #gameHint {
     color: white; 
     font-size: 18px;
     font-weight: bold;
+}
+
+/* 板塊預覽圖片 */
+.tile-preview img {
+    width: 75px; /* 與地圖板塊大小一致 */
+    height: 75px;
+    border: 1px solid white;
 }

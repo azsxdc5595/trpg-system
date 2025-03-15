@@ -39,15 +39,15 @@ body {
     align-items: center;
     justify-content: center;
     position: relative; /* 讓 `img` 正確覆蓋 */
-    background: none; /* ✅ 不單獨設定背景，因為 `grid-container` 已經有背景 */
-    overflow: hidden; /* ✅ 避免內部元素超出 */
+    background: none; /*  不單獨設定背景，因為 `grid-container` 已經有背景 */
+    overflow: hidden; /*  避免內部元素超出 */
 }
 
 /* 確保圖片不會超過 tile 的範圍 */
 .tile img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain; /* ✅ 確保圖片縮放時不變形 */
+    object-fit: contain; /*  確保圖片縮放時不變形 */
     position: absolute;
     top: 0;
     left: 0;

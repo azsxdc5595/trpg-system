@@ -14,4 +14,6 @@ public interface MapTitleCustomizeMapper {
     long countMapTitles();
 
 	MapTitle getStartMapTitle();
+
+	MapTitle getRandomEnabledTile();
 }
