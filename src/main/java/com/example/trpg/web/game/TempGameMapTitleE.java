@@ -1,6 +1,5 @@
-package com.example.trpg.dao.model;
+package com.example.trpg.web.game;
 
-import java.io.Serializable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,10 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class GameMapTitle implements Serializable {
-    private String uid;
-
-    private Integer mapTitleId;
+public class TempGameMapTitleE {
 
     private String relatedEvents;
 
@@ -22,6 +18,7 @@ public class GameMapTitle implements Serializable {
     private Integer y;
 
     private Integer floor;
+    
+    private String icon;
 
-    private static final long serialVersionUID = 1L;
 }

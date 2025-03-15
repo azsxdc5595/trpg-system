@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.trpg.dao.mapper.customize.TempGameMapTitleCustomizeMapper">
+
+    <!-- list 查詢 -->
+    <select id="list" resultMap="com.example.trpg.dao.mapper.TempGameMapTitleMapper.BaseResultMap">
+        SELECT
+        <include refid="com.example.trpg.dao.mapper.TempGameMapTitleMapper.Base_Column_List"/>
+        FROM TEMP_GAME_MAP_TITLE
+    </select>
+
+</mapper>
+

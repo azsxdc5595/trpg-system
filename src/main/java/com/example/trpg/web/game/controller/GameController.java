@@ -25,6 +25,12 @@ public class GameController {
         return new ModelAndView("/game/game_model", gameService.newGame());
     }
     
+	@PostMapping("/query") // 確保這裡是 POST
+	public ResponseEntity<Map<String, Object>> query() {
+		Map<String, Object> dataMap = gameService.query();
+		return ResponseEntity.ok(dataMap);
+	}
+	
 	@PostMapping("/drawTile") // 確保這裡是 POST
 	public ResponseEntity<Map<String, String>> drawTile() {
 		Map<String, String> dataMap = gameService.drawTile();

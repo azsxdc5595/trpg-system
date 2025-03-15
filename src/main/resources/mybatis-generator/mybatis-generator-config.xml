@@ -74,6 +74,20 @@
             <property name="useActualColumnNames" value="false"/>
             <generatedKey column="ID" sqlStatement="JDBC" identity="true" />
         </table>
+        <table tableName="TEMP_GAME_MAP_TITLE" domainObjectName="TempGameMapTitle"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+        </table>
+        <table tableName="GAME_MAP_TITLE" domainObjectName="GameMapTitle"
+               enableCountByExample="false" enableUpdateByExample="false"
+               enableDeleteByExample="false" enableSelectByExample="false"
+               selectByExampleQueryId="false">
+            <property name="useActualColumnNames" value="false"/>
+            <generatedKey column="ID" sqlStatement="JDBC" identity="true" />
+        </table>
         <table tableName="MAP_TITLE" domainObjectName="MapTitle"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false"

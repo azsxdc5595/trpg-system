@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.example.trpg.dao.mapper.GameMapTitleMapper">
-  <resultMap id="BaseResultMap" type="com.example.trpg.dao.model.GameMapTitle">
+<mapper namespace="com.example.trpg.dao.mapper.TempGameMapTitleMapper">
+  <resultMap id="BaseResultMap" type="com.example.trpg.dao.model.TempGameMapTitle">
     <result column="UID" jdbcType="VARCHAR" property="uid" />
     <result column="MAP_TITLE_ID" jdbcType="INTEGER" property="mapTitleId" />
     <result column="RELATED_EVENTS" jdbcType="VARCHAR" property="relatedEvents" />
@@ -9,14 +9,17 @@
     <result column="Y" jdbcType="INTEGER" property="y" />
     <result column="FLOOR" jdbcType="INTEGER" property="floor" />
   </resultMap>
-  <insert id="insert" parameterType="com.example.trpg.dao.model.GameMapTitle">
-    insert into game_map_title (UID, MAP_TITLE_ID, RELATED_EVENTS, 
+  <sql id="Base_Column_List">
+    UID, MAP_TITLE_ID, RELATED_EVENTS, X, Y, FLOOR
+  </sql>
+  <insert id="insert" parameterType="com.example.trpg.dao.model.TempGameMapTitle">
+    insert into temp_game_map_title (UID, MAP_TITLE_ID, RELATED_EVENTS, 
       X, Y, FLOOR)
     values (#{uid,jdbcType=VARCHAR}, #{mapTitleId,jdbcType=INTEGER}, #{relatedEvents,jdbcType=VARCHAR}, 
       #{x,jdbcType=INTEGER}, #{y,jdbcType=INTEGER}, #{floor,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.example.trpg.dao.model.GameMapTitle">
-    insert into game_map_title
+  <insert id="insertSelective" parameterType="com.example.trpg.dao.model.TempGameMapTitle">
+    insert into temp_game_map_title
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="uid != null">
         UID,

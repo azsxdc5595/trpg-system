@@ -6,11 +6,11 @@
     <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="DESCRIPTION" jdbcType="VARCHAR" property="description" />
     <result column="CATEGORY" jdbcType="VARCHAR" property="category" />
-    <result column="RELATED_EVENTS" jdbcType="VARCHAR" property="relatedEvents" />
     <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
+    <result column="RELATED_EVENTS" jdbcType="VARCHAR" property="relatedEvents" />
   </resultMap>
   <sql id="Base_Column_List">
-    UID, NAME, DESCRIPTION, CATEGORY, RELATED_EVENTS, ENABLED
+    UID, NAME, DESCRIPTION, CATEGORY, ENABLED, RELATED_EVENTS
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -24,10 +24,10 @@
   </delete>
   <insert id="insert" parameterType="com.example.trpg.dao.model.Item">
     insert into item (UID, NAME, DESCRIPTION, 
-      CATEGORY, RELATED_EVENTS, ENABLED
+      CATEGORY, ENABLED, RELATED_EVENTS
       )
     values (#{uid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
-      #{category,jdbcType=VARCHAR}, #{relatedEvents,jdbcType=VARCHAR}, #{enabled,jdbcType=INTEGER}
+      #{category,jdbcType=VARCHAR}, #{enabled,jdbcType=INTEGER}, #{relatedEvents,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.example.trpg.dao.model.Item">
@@ -45,11 +45,11 @@
       <if test="category != null">
         CATEGORY,
       </if>
-      <if test="relatedEvents != null">
-        RELATED_EVENTS,
-      </if>
       <if test="enabled != null">
         ENABLED,
+      </if>
+      <if test="relatedEvents != null">
+        RELATED_EVENTS,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -65,11 +65,11 @@
       <if test="category != null">
         #{category,jdbcType=VARCHAR},
       </if>
-      <if test="relatedEvents != null">
-        #{relatedEvents,jdbcType=VARCHAR},
-      </if>
       <if test="enabled != null">
         #{enabled,jdbcType=INTEGER},
+      </if>
+      <if test="relatedEvents != null">
+        #{relatedEvents,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -85,11 +85,11 @@
       <if test="category != null">
         CATEGORY = #{category,jdbcType=VARCHAR},
       </if>
-      <if test="relatedEvents != null">
-        RELATED_EVENTS = #{relatedEvents,jdbcType=VARCHAR},
-      </if>
       <if test="enabled != null">
         ENABLED = #{enabled,jdbcType=INTEGER},
+      </if>
+      <if test="relatedEvents != null">
+        RELATED_EVENTS = #{relatedEvents,jdbcType=VARCHAR},
       </if>
     </set>
     where UID = #{uid,jdbcType=VARCHAR}
@@ -99,8 +99,8 @@
     set NAME = #{name,jdbcType=VARCHAR},
       DESCRIPTION = #{description,jdbcType=VARCHAR},
       CATEGORY = #{category,jdbcType=VARCHAR},
-      RELATED_EVENTS = #{relatedEvents,jdbcType=VARCHAR},
-      ENABLED = #{enabled,jdbcType=INTEGER}
+      ENABLED = #{enabled,jdbcType=INTEGER},
+      RELATED_EVENTS = #{relatedEvents,jdbcType=VARCHAR}
     where UID = #{uid,jdbcType=VARCHAR}
   </update>
 </mapper>

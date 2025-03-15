@@ -15,13 +15,13 @@ public class MapTitle implements Serializable {
 
     private Integer trapFlag;
 
-    private Integer pattern;
+    private String pattern;
+
+    private String name;
 
     private Integer enabled;
 
     private String icon;
-
-    private String name;
 
     private static final long serialVersionUID = 1L;
 }

@@ -10,18 +10,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Item implements Serializable {
+public class TempGameMapTitle implements Serializable {
     private String uid;
 
-    private String name;
-
-    private String description;
-
-    private String category;
-
-    private Integer enabled;
+    private Integer mapTitleId;
 
     private String relatedEvents;
+
+    private Integer x;
+
+    private Integer y;
+
+    private Integer floor;
 
     private static final long serialVersionUID = 1L;
 }

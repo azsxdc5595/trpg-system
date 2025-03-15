@@ -4,13 +4,13 @@
   <resultMap id="BaseResultMap" type="com.example.trpg.dao.model.MapTitle">
     <id column="ID" jdbcType="INTEGER" property="id" />
     <result column="TRAP_FLAG" jdbcType="INTEGER" property="trapFlag" />
-    <result column="PATTERN" jdbcType="INTEGER" property="pattern" />
+    <result column="PATTERN" jdbcType="VARCHAR" property="pattern" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
     <result column="ENABLED" jdbcType="INTEGER" property="enabled" />
     <result column="ICON" jdbcType="VARCHAR" property="icon" />
-    <result column="NAME" jdbcType="VARCHAR" property="name" />
   </resultMap>
   <sql id="Base_Column_List">
-    ID, TRAP_FLAG, PATTERN, ENABLED, ICON, NAME
+    ID, TRAP_FLAG, PATTERN, NAME, ENABLED, ICON
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -23,10 +23,10 @@
     where ID = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" keyColumn="ID" keyProperty="id" parameterType="com.example.trpg.dao.model.MapTitle" useGeneratedKeys="true">
-    insert into map_title (TRAP_FLAG, PATTERN, ENABLED, 
-      ICON, NAME)
-    values (#{trapFlag,jdbcType=INTEGER}, #{pattern,jdbcType=INTEGER}, #{enabled,jdbcType=INTEGER}, 
-      #{icon,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR})
+    insert into map_title (TRAP_FLAG, PATTERN, NAME, 
+      ENABLED, ICON)
+    values (#{trapFlag,jdbcType=INTEGER}, #{pattern,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{enabled,jdbcType=INTEGER}, #{icon,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" keyColumn="ID" keyProperty="id" parameterType="com.example.trpg.dao.model.MapTitle" useGeneratedKeys="true">
     insert into map_title
@@ -37,14 +37,14 @@
       <if test="pattern != null">
         PATTERN,
       </if>
+      <if test="name != null">
+        NAME,
+      </if>
       <if test="enabled != null">
         ENABLED,
       </if>
       <if test="icon != null">
         ICON,
-      </if>
-      <if test="name != null">
-        NAME,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -52,16 +52,16 @@
         #{trapFlag,jdbcType=INTEGER},
       </if>
       <if test="pattern != null">
-        #{pattern,jdbcType=INTEGER},
+        #{pattern,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
       </if>
       <if test="enabled != null">
         #{enabled,jdbcType=INTEGER},
       </if>
       <if test="icon != null">
         #{icon,jdbcType=VARCHAR},
-      </if>
-      <if test="name != null">
-        #{name,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -72,7 +72,10 @@
         TRAP_FLAG = #{trapFlag,jdbcType=INTEGER},
       </if>
       <if test="pattern != null">
-        PATTERN = #{pattern,jdbcType=INTEGER},
+        PATTERN = #{pattern,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
       </if>
       <if test="enabled != null">
         ENABLED = #{enabled,jdbcType=INTEGER},
@@ -80,19 +83,16 @@
       <if test="icon != null">
         ICON = #{icon,jdbcType=VARCHAR},
       </if>
-      <if test="name != null">
-        NAME = #{name,jdbcType=VARCHAR},
-      </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.example.trpg.dao.model.MapTitle">
     update map_title
     set TRAP_FLAG = #{trapFlag,jdbcType=INTEGER},
-      PATTERN = #{pattern,jdbcType=INTEGER},
+      PATTERN = #{pattern,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
       ENABLED = #{enabled,jdbcType=INTEGER},
-      ICON = #{icon,jdbcType=VARCHAR},
-      NAME = #{name,jdbcType=VARCHAR}
+      ICON = #{icon,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
