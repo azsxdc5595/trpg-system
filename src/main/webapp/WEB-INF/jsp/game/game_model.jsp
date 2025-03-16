@@ -14,6 +14,7 @@
     </head>
     <body>
         <h2 class="trpg-title">TRPG 板塊地圖</h2>
+        <jsp:include page="/WEB-INF/jsp/game/game_label.jsp" />
         <form id="queryForm">
         	<input type="hidden" value='<c:out value="${snowNo}"/>' name="snowNo">
         </form>

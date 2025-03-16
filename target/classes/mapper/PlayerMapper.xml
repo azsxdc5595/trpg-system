@@ -11,9 +11,10 @@
     <result column="INTELLIGENCE" jdbcType="INTEGER" property="intelligence" />
     <result column="LUCK" jdbcType="INTEGER" property="luck" />
     <result column="HEALTH" jdbcType="INTEGER" property="health" />
+    <result column="ICON" jdbcType="VARCHAR" property="icon" />
   </resultMap>
   <sql id="Base_Column_List">
-    UID, NAME, RACE, PROFESSION, STRENGTH, DEXTERITY, INTELLIGENCE, LUCK, HEALTH
+    UID, NAME, RACE, PROFESSION, STRENGTH, DEXTERITY, INTELLIGENCE, LUCK, HEALTH, ICON
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
     select 
@@ -28,12 +29,12 @@
   <insert id="insert" parameterType="com.example.trpg.dao.model.Player">
     insert into player (UID, NAME, RACE, 
       PROFESSION, STRENGTH, DEXTERITY, 
-      INTELLIGENCE, LUCK, HEALTH
-      )
+      INTELLIGENCE, LUCK, HEALTH, 
+      ICON)
     values (#{uid,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{race,jdbcType=VARCHAR}, 
       #{profession,jdbcType=VARCHAR}, #{strength,jdbcType=INTEGER}, #{dexterity,jdbcType=INTEGER}, 
-      #{intelligence,jdbcType=INTEGER}, #{luck,jdbcType=INTEGER}, #{health,jdbcType=INTEGER}
-      )
+      #{intelligence,jdbcType=INTEGER}, #{luck,jdbcType=INTEGER}, #{health,jdbcType=INTEGER}, 
+      #{icon,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.example.trpg.dao.model.Player">
     insert into player
@@ -65,6 +66,9 @@
       <if test="health != null">
         HEALTH,
       </if>
+      <if test="icon != null">
+        ICON,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="uid != null">
@@ -93,6 +97,9 @@
       </if>
       <if test="health != null">
         #{health,jdbcType=INTEGER},
+      </if>
+      <if test="icon != null">
+        #{icon,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -123,6 +130,9 @@
       <if test="health != null">
         HEALTH = #{health,jdbcType=INTEGER},
       </if>
+      <if test="icon != null">
+        ICON = #{icon,jdbcType=VARCHAR},
+      </if>
     </set>
     where UID = #{uid,jdbcType=VARCHAR}
   </update>
@@ -135,7 +145,8 @@
       DEXTERITY = #{dexterity,jdbcType=INTEGER},
       INTELLIGENCE = #{intelligence,jdbcType=INTEGER},
       LUCK = #{luck,jdbcType=INTEGER},
-      HEALTH = #{health,jdbcType=INTEGER}
+      HEALTH = #{health,jdbcType=INTEGER},
+      ICON = #{icon,jdbcType=VARCHAR}
     where UID = #{uid,jdbcType=VARCHAR}
   </update>
 </mapper>

@@ -26,6 +26,7 @@
                 <th>生命</th>
                 <th>關聯事件</th>
                 <th>是否啟用</th>
+                <th>NPC圖示</th>
                 <th>操作</th>
             </tr>
             <c:forEach var="npc" items="${npcs}">
@@ -41,6 +42,7 @@
                     <td>${npc.health}</td>
                     <td>${npc.relatedEvents}</td>
                     <td>${npc.enabled}</td>
+                    <td><img src="<c:out value='${npc.icon}'/>" alt="Tile Image" width="140" height="200"></td>
                     <td>
                         <form action="/npc/toEdit" method="POST">
                             <input type="hidden" name="uid" value="<c:out value='${npc.uid}'/>">

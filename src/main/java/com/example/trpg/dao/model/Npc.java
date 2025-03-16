@@ -33,5 +33,7 @@ public class Npc implements Serializable {
 
     private Integer enabled;
 
+    private String icon;
+
     private static final long serialVersionUID = 1L;
 }

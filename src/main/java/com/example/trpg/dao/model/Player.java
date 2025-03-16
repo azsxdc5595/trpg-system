@@ -29,5 +29,7 @@ public class Player implements Serializable {
 
     private Integer health;
 
+    private String icon;
+
     private static final long serialVersionUID = 1L;
 }

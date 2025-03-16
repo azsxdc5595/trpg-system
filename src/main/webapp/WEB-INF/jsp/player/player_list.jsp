@@ -24,6 +24,7 @@
                 <th>智力</th>
                 <th>幸運</th>
                 <th>生命</th>
+                <th>角色圖示</th>
                 <th>操作</th>
             </tr>
             <c:forEach var="player" items="${players}">
@@ -37,6 +38,7 @@
                     <td>${player.intelligence}</td>
                     <td>${player.luck}</td>
                     <td>${player.health}</td>
+                    <td><img src="<c:out value='${player.icon}'/>" alt="Tile Image" width="140" height="200"></td>
                     <td>
                         <form action="/player/toEdit" method="POST">
                             <input type="hidden" name="uid" value="<c:out value='${player.uid}'/>">
