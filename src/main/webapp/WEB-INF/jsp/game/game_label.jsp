@@ -12,7 +12,7 @@
 		<div class="game-label">
 		    <div class="game-label-Player-toggle">角色</div>
 		    <div class="game-label-Player-content">
-		    	<img src="\icon\Player Character\A.jpg" width="210px" hight="300px"/>
+		    	<img src="\icon\Player Character\A.png" width="210px" hight="300px"/>
 		        <div class="game-label-Player-title">角色屬性</div>
 		        <ul>
 		            <li>力量：10</li>

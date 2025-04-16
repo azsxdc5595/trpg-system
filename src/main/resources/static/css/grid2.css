@@ -1,0 +1,61 @@
+body {
+    background: black; /* 設定整個頁面為黑色背景 */
+}
+
+/* 標題樣式 */
+.trpg-title {
+    color: white; /* 設為白色 */
+    text-align: center; /* 文字置中 */
+    font-size: 24px; /* 設定適當字體大小 */
+    font-weight: bold; /* 粗體 */
+}
+
+/* TRPG 主介面 */
+.grid-wrapper {
+    display: flex;
+    justify-content: center; /* 水平置中 */
+    align-items: center; /* 垂直置中 */
+    min-height: 100vh;
+    overflow: auto;
+}
+
+.grid-container {
+    display: grid;
+    gap: 0px;
+    position: relative;
+    background-size: cover;
+}
+
+.tile {
+    width: 48px !important;
+    height: 48px !important;
+    max-width: 48px !important;
+    max-height: 48px !important;
+    align-items: center;
+    justify-content: center;
+    position: relative; /* 讓 `img` 正確覆蓋 */
+    overflow: hidden; /*  避免內部元素超出 */
+    background: url('/icon/Img/Map001.png')
+}
+
+#gameMap {
+    border-collapse: collapse; /* 合併邊框，避免雙邊框 */
+}
+
+#gameMap td {
+    border: 0.5px solid rgba(128, 128, 128, 0.4); /* 灰色細線 + 高透明度 */
+    width: 48px;
+    height: 48px;
+    padding: 0;
+}
+
+#player {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 27px;
+    height: 40px;
+    image-rendering: pixelated;
+    z-index: 10; /* 讓角色疊在格子上方 */
+    pointer-events: none; /* 防止角色擋住滑鼠點擊事件 */
+}

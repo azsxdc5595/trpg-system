@@ -16,7 +16,7 @@
             <form action="/game/newGame" method="GET" class="center">
                 <button type="submit" class="submit-btn">新的遊戲</button>
             </form>
-            <form action="/item/" method="GET" class="center">
+            <form action="/game/newGame2" method="GET" class="center">
                 <button type="submit" class="submit-btn">存檔繼承</button>
             </form>
             <form action="/setting/" method="GET" class="center">

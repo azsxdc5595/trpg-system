@@ -1,9 +1,14 @@
 package com.example.trpg.web.game.service;
 
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import javax.imageio.ImageIO;
 
 import org.springframework.stereotype.Service;
 
@@ -40,6 +45,37 @@ public class GameService {
     	
     }
 
+    public Map<String, Object> newGame2() throws IOException {
+        Map<String, Object> dataMap = new HashMap<>();
+        
+        InputStream in = getClass().getResourceAsStream("/static/icon/Img/Map001.png"); // 注意路徑
+        BufferedImage image;
+        try {
+            image = ImageIO.read(in);
+            int tileSize = 48;
+            int imageWidth = image.getWidth();    // 816
+            int imageHeight = image.getHeight();  // 624
+
+            int cols = imageWidth / tileSize;     // 816 / 48 = 17
+            int rows = imageHeight / tileSize;    // 624 / 48 = 13
+            List<List<TempGameMapTitle>> map = new ArrayList<>();
+
+            for (int y = 0; y < rows; y++) {
+                List<TempGameMapTitle> row = new ArrayList<>();
+                for (int x = 0; x < cols; x++) {
+//                    boolean passable = true; // 初始都先設定為可走，後面再補規則
+                    row.add(new TempGameMapTitle(null, 4, null, x, y, 1));
+                }
+                map.add(row);
+            }
+            dataMap.put("map", map);
+            return dataMap;
+        } catch (IOException e) {
+            System.out.print("圖片分割失敗");
+            throw new IOException(e);
+        }
+    }
+    
 	public Map<String, Object> query(String snowNo) {
 		Map<String, Object> dataMap = new HashMap<>();
 		List<TempGameMapTitleE> listE = new ArrayList<>();

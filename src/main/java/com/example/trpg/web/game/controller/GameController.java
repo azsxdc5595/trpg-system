@@ -1,5 +1,6 @@
 package com.example.trpg.web.game.controller;
 
+import java.io.IOException;
 import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
@@ -26,13 +27,18 @@ public class GameController {
         return new ModelAndView("/game/game_model", gameService.newGame());
     }
     
+    @GetMapping("/newGame2")
+    public ModelAndView init2() throws IOException {
+        return new ModelAndView("/game/game_model2", gameService.newGame2());
+    }
+    
 	@PostMapping("/query") // 確保這裡是 POST
 	public ResponseEntity<Map<String, Object>> query(String snowNo) {
 		Map<String, Object> dataMap = gameService.query(snowNo);
 		return ResponseEntity.ok(dataMap);
 	}
 	
-	@PostMapping("/drawTile") // 確保這裡是 POST
+	@GetMapping("/drawTile") // 確保這裡是 POST
 	public ResponseEntity<Map<String, Object>> drawTile() {
 		Map<String, Object> dataMap = gameService.drawTile();
 		return ResponseEntity.ok(dataMap);
